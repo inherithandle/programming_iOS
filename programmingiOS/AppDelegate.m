@@ -17,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [UIViewController new];
+    UIView *mainview = self.window.rootViewController.view;
+    
+    UIView* v1 = [[UIView alloc] initWithFrame:CGRectMake(30, 30, 132, 194)];
+    v1.backgroundColor = [UIColor colorWithRed:1 green:.4 blue:1 alpha:1];
+    UIView *v2 = [[UIView alloc]initWithFrame:CGRectInset(v1.bounds, 10, 10)];
+    v2.backgroundColor = [UIColor colorWithRed:.5 green:1 blue:0 alpha:1];
+    [mainview addSubview: v1];
+    [v1 addSubview: v2];
+    CGRect r = v2.bounds;
+    r.size.width +=10;
+    r.size.height +=10;
+    v2.bounds = r;
+    
     return YES;
 }
 
